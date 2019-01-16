@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
  * @description 自定义classloader 加载指定路径的class 复写findClass 方法
  * @date 2019-01-04 14:32
  **/
-public class DiskClassLoader extends ClassLoader{
+public class DiskClassLoader extends ClassLoader {
     protected String mLibPath;
 
     public DiskClassLoader(String path) {
@@ -27,7 +27,7 @@ public class DiskClassLoader extends ClassLoader{
 
         String fileName = getFileName(name);
 
-        File file = new File(mLibPath,fileName);
+        File file = new File(mLibPath, fileName);
 
         try {
             FileInputStream is = new FileInputStream(file);
@@ -46,7 +46,7 @@ public class DiskClassLoader extends ClassLoader{
             is.close();
             bos.close();
 
-            return defineClass(name,data,0,data.length);
+            return defineClass(name, data, 0, data.length);
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -60,26 +60,26 @@ public class DiskClassLoader extends ClassLoader{
     private static String getFileName(String name) {
         // TODO Auto-generated method stub
         int index = name.lastIndexOf('.');
-        if(index == -1){
-            return name+".class";
-        }else{
-            return name.substring(index+1)+".class";
+        if (index == -1) {
+            return name + ".class";
+        } else {
+            return name.substring(index + 1) + ".class";
         }
     }
 
-    public static void main(String[] args) throws Exception{
-        while (true){
+    public static void main(String[] args) throws Exception {
+        while (true) {
 
             Thread.sleep(100);
-            DiskClassLoader diskClassLoader=new DiskClassLoader("/home/jianganwei/IdeaProjects/study-v2/java-class-loader/src/main/java/com/example/javaclassloader/loader/demo");
+            DiskClassLoader diskClassLoader = new DiskClassLoader("/home/jianganwei/IdeaProjects/study-v2/java-class-loader/src/main/java/com/example/javaclassloader/loader/demo");
             try {
                 //加载class文件
                 Class c = diskClassLoader.loadClass("com.example.javaclassloader.loader.demo.demo");
 
-                if(c != null){
+                if (c != null) {
                     try {
                         Object obj = c.newInstance();
-                        Method method = c.getDeclaredMethod("sout",null);
+                        Method method = c.getDeclaredMethod("sout", null);
                         //通过反射调用Test类的say方法
                         method.invoke(obj, null);
                     } catch (InstantiationException | IllegalAccessException
@@ -96,7 +96,6 @@ public class DiskClassLoader extends ClassLoader{
                 e.printStackTrace();
             }
         }
-
 
 
     }

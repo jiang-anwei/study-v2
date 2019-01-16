@@ -8,11 +8,12 @@ package com.example.javaclassloader.loader.demo;
  **/
 public class demo2 {
     public void sout() {
-        System.out.println("demo2->"+Thread.currentThread().getContextClassLoader());
+        System.out.println("demo2->" + Thread.currentThread().getContextClassLoader());
         System.out.println("demo2-qwerqwerqe");
     }
+
     public static void main(String[] args) {
         System.out.println(System.getProperty("sun.boot.class.path"));
     }
-    }
+}
 

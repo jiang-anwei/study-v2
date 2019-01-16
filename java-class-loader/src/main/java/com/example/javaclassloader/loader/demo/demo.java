@@ -7,8 +7,8 @@ package com.example.javaclassloader.loader.demo;
  * @date 2019-01-04 15:01
  **/
 public class demo {
-    public void sout(){
-        System.out.println("demo->"+Thread.currentThread().getContextClassLoader());
+    public void sout() {
+        System.out.println("demo->" + Thread.currentThread().getContextClassLoader());
         System.out.println("v6");
         new demo2().sout();
     }
