@@ -3,7 +3,7 @@ package com.example.javathread;
 /**
  * @author jianganwei
  * @program study-v2
- * @description
+ * @description  sleep 不会释放锁　wait会释放锁
  * @date 2019-01-15 11:49
  **/
 public class ThreadTest implements Runnable {
@@ -23,8 +23,8 @@ public class ThreadTest implements Runnable {
              * 以验证当前线程对象的机锁被占用时,
              * 是否被可以访问其他同步代码块
              */
-            Thread.sleep(2000);
-//            this.wait(2000);
+//            Thread.sleep(2000);
+            this.wait(2000);
             number *= 200;
         }
     }
