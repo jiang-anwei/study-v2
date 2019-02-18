@@ -14,7 +14,18 @@ public class ApolloDemoApplication {
     private String str;
     @PostConstruct
     private void demo(){
-        System.out.println(">>>>>>>>>>>>"+str);
+        new Thread(()->{
+            while (true){
+                try {
+                    Thread.sleep(1000);
+                    System.out.println(">>>>>>>>>>>>"+str);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+
+        }).start();
+
     }
     public static void main(String[] args) {
         SpringApplication.run(ApolloDemoApplication.class, args);
