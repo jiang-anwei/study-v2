@@ -56,8 +56,10 @@ public class InterruptThreadTest {
         t.start();
         TimeUnit.SECONDS.sleep(2);
         t.interrupt();
+        System.out.println(t.isInterrupted());
         System.out.println("打断");
-        TimeUnit.SECONDS.sleep(20000);
+        TimeUnit.SECONDS.sleep(2);
+        System.out.println(t.isInterrupted());
     }
     @Test
     public void test2() throws Exception{
@@ -74,6 +76,8 @@ public class InterruptThreadTest {
         t.start();
         TimeUnit.SECONDS.sleep(2);
         t.interrupt();
-        TimeUnit.SECONDS.sleep(20000);
+        System.out.println(t.isInterrupted());
+        TimeUnit.SECONDS.sleep(2);
+        System.out.println(t.isInterrupted());
     }
 }

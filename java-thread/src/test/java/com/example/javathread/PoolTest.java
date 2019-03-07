@@ -3,6 +3,8 @@ package com.example.javathread;
 import org.junit.Test;
 
 import java.util.concurrent.*;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author jianganwei
@@ -42,5 +44,20 @@ public class PoolTest {
         System.out.println(i[0]);
         executorService.shutdown();
         executorService.awaitTermination(10,TimeUnit.HOURS);
+    }
+    @Test
+    public void demo2() throws Exception{
+        FutureTask<String> task=new FutureTask<>(()->{
+            TimeUnit.SECONDS.sleep(5);
+            return "12312";
+        });
+        Thread t=new Thread(task);
+        t.start();
+        System.out.println(task.get());
+    }
+    @Test
+    public void demo3()throws Exception{
+//        CyclicBarrier cyclicBarrier=new CyclicBarrier();
+        Lock lock=new ReentrantLock();
     }
 }
