@@ -11,8 +11,8 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author jianganwei
- * @program study-v2
- * @description
+ * @program study-v2　Flux　Mono 发布订阅者模式
+ * @description 方式１
  * @date 2019-02-20 16:58
  **/
 @RestController
@@ -31,6 +31,6 @@ public class DemoController {
                 }
             }
         }).start();
-        return Flux.interval(Duration.ofSeconds(2)).log().map(l->result.toString()+"\n");
+        return Flux.range(1,10).log().map(l->result.toString()+"\n");
     }
 }

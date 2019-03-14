@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author jianganwei
  * @program study-v2
- * @description 打断测试
+ * @description 打断测试 interrupted 只能打断阻塞这种的进程
  * @date 2019-02-18 17:11
  **/
 public class InterruptThreadTest {
@@ -25,8 +25,11 @@ public class InterruptThreadTest {
         t.interrupt();
     }
     @Test
-    public void test(){
+    public void test() throws Exception{
         //能打断
+        synchronized (this){
+            wait(1);
+        }
         Thread t=new Thread(()->{
             while (true){
                 try {
