@@ -17,6 +17,8 @@ import java.time.LocalDateTime;
 @Component
 public class TimeHandler {
     public Mono<ServerResponse> getTime(ServerRequest request) {
+//        System.out.println(request.attribute("demo").get());
+        System.out.println(request.queryParam("demo"));
         return ServerResponse.ok().contentType(MediaType.TEXT_PLAIN)
                 .body(Mono.just(LocalDateTime.now().toString()), String.class);
 

@@ -21,7 +21,7 @@ public class TimeRouter {
 
     @Bean
     public RouterFunction<ServerResponse> timeRouter() {
-        return RouterFunctions.route(RequestPredicates.GET("/time"),
+        return RouterFunctions.route(RequestPredicates.GET("/time*"),
                 request -> timeHandler.getTime(request));
     }
 }
