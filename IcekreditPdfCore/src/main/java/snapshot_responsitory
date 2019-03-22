@@ -1,0 +1,90 @@
+maven snapshot repository创建及jar包上传
+1）在maven服务器上点击Add-->>hosted repository,填写仓库id以及名称，设置Repository Policy为snapshot，Deployment Policy设置为allow redeploy.点击完成
+2)在仓库列表中找到刚刚创建的maven仓库，然后展开summary tab，复制其中的distributionManagement，到需要发布的项目的pom.xml文件中，如
+    <distributionManagement>
+      <snapshotRepository>
+        <id>com.icekredit</id>
+        <url>http://121.40.66.171:8081/content/repositories/com.icekredit</url>
+      </snapshotRepository>
+    </distributionManagement>
+
+3)打开maven配置文件settings.xml, 在其中为上传jar包到snapshot仓库配置用户名密码信息，如
+    <server>
+        <id>com.icekredit</id>
+        <username>admin</username>
+        <password>adminpasswd</password>
+    </server>
+需要注意此处的id必须和上面distributionManagement中的id相互对应
+4）在idea命令行运行mvn deploy发布当前项目jar包到远程snapshot仓库
+
+ps：注意修改当前项目的版本号，如
+    <groupId>icekredit-pdf</groupId>
+    <artifactId>icekredit-pdf-core</artifactId>
+    <version>1.1.7-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+5）如果某个系统需要使用snapshot类型的仓库，必须进行配置，如：关键在于enable：是否启用snapshot，updatePolicy：always 实时更新
+    <repositories>
+            <repository>
+                <releases>
+                    <enabled>true</enabled>
+                    <updatePolicy>always</updatePolicy>
+                    <checksumPolicy>warn</checksumPolicy>
+                </releases>
+                <id>public</id>
+                <name>Public Repositories</name>
+                <url>http://121.40.66.171:8081/content/groups/public/</url>
+            </repository>
+
+            <repository>
+                <snapshots>
+                    <enabled>true</enabled>
+                    <updatePolicy>always</updatePolicy>
+                    <checksumPolicy>warn</checksumPolicy>
+                </snapshots>
+
+                <id>snapshot</id>
+                <name>SnapShot Respositories</name>
+                <url>http://121.40.66.171:8081/content/repositories/com.icekredit</url>
+            </repository>
+        </repositories>
+
+    同样需要配置下载jar包的用户名密码，如
+    <server>
+              <id>public</id>
+              <username>zhangsan</username>
+              <password>zhangsanpasswd</password>
+            </server>
+
+    <server>
+          <id>snapshot</id>
+          <username>zhangsan</username>
+          <password>zhangsanpasswd</password>
+        </server>
+
+6)如果某个系统依赖当前jar包，那么在pom文件中直接加入一条依赖即可，如：
+        <dependency>
+            <groupId>icekredit-pdf</groupId>
+            <artifactId>icekredit-pdf-core</artifactId>
+            <version>1.1.7-SNAPSHOT</version>
+        </dependency>
+
+7)几个需要注意的地方：
+   1.maven仓库jar包更新的策略有snapshot和release两种，具体配置方式如下
+          <snapshots>
+               <enabled>true</enabled>
+               <updatePolicy>always</updatePolicy>
+               <checksumPolicy>warn</checksumPolicy>
+          </snapshots>
+   可以看出有几个配置参数，第一个enable表示启用或者禁用当前策略，updatePolicy表示本地仓库同步远程仓库的方式，有always，daily，interval：minutes,never四种，
+   always：总是利用类似轮询的机制检测远程仓库，一旦远程仓库更新，将立即同步。
+   daily：每天第一次启动mvn将自动同步远程仓库
+   interval：minutes：以指定时间间隔进行检测以及同步
+   never：相当于 enable==false
+
+   针对snapshot
+   1）只要updatepolicy设置为always/daily/interval：minutes中的一种，maven会按照指定策略检测和同步远程仓库,即使enable为false
+   2)以snapshot方式打包jar包，resource标签下的<filtering>false</filtering>必须设置为false,lz在将jar包部署到远程snapshot仓库的时候，jar包中的字体文件被maven编译了一次，导致依赖此jar包的
+   项目无法运行。
+
+

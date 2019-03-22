@@ -1,0 +1,892 @@
+{
+  "organization_uid": "167",
+  "temporary_operation": {
+    "operand_datas": [
+      {
+        "operand_datas": [
+          {
+            "operand_datas": [
+              {
+                "operand_datas": [
+                  {
+                    "operand_datas": [
+                      {
+                        "operand_data": {
+                          "field_id": 3932,
+                          "field_key": "data",
+                          "data_type": {
+                            "data_type_id": 7,
+                            "data_type_alias": "JSONArray",
+                            "data_type_desc": "对象json 数组",
+                            "data_type_dimension": 4
+                          },
+                          "data_source_id": 38,
+                          "field_name": "",
+                          "field_expression": "mobileInfoV2>transportation>origin>call_info>data"
+                        },
+                        "function": {
+                          "function_name": "metaGet",
+                          "function_desc": "函数metaGet用于从指定Json对象中取出指定field对应的属性,接收参数：TemporaryValue类型的指定Json对象:temporaryValue,Field类型的指定字段:operandField,函数执行最终返回指定字段对应的属性",
+                          "function_id": 232,
+                          "result_data_type": {
+                            "data_type_id": 10,
+                            "data_type_alias": "Object",
+                            "data_type_desc": "通用对象",
+                            "data_type_dimension": 1
+                          },
+                          "arguments": [
+                            {
+                              "argument_index": 1,
+                              "function_id": 232,
+                              "argument_desc": "指定字段",
+                              "argument_type": "1",
+                              "argument_id": 441,
+                              "argument_data_type": {
+                                "data_type_id": 4,
+                                "data_type_alias": "field",
+                                "data_type_desc": "数据源字段",
+                                "data_type_dimension": 1
+                              }
+                            }
+                          ],
+                          "function_cn_name": "伪操作从指定Json对象中取出指定field对应的属性"
+                        },
+                        "show_checked": "data",
+                        "argument_desc": "指定Json数组",
+                        "data_type_alias": "JSONArray",
+                        "data_type_desc": "对象json 数组"
+                      }
+                    ],
+                    "function": {
+                      "function_name": "expand2dJsonArray",
+                      "function_desc": null,
+                      "function_id": 251,
+                      "result_data_type": {
+                        "data_type_id": 7,
+                        "data_type_alias": "JSONArray",
+                        "data_type_desc": "对象json 数组",
+                        "data_type_dimension": 4
+                      },
+                      "arguments": [
+                        {
+                          "argument_index": 0,
+                          "function_id": 251,
+                          "argument_desc": "指定Json数组",
+                          "argument_type": "0",
+                          "argument_id": 471,
+                          "argument_data_type": {
+                            "data_type_id": 7,
+                            "data_type_alias": "JSONArray",
+                            "data_type_desc": "对象json 数组",
+                            "data_type_dimension": 4
+                          }
+                        },
+                        {
+                          "argument_index": 1,
+                          "function_id": 251,
+                          "argument_desc": "指定子数组字段",
+                          "argument_type": "1",
+                          "argument_id": 472,
+                          "argument_data_type": {
+                            "data_type_id": 4,
+                            "data_type_alias": "field",
+                            "data_type_desc": "数据源字段",
+                            "data_type_dimension": 1
+                          }
+                        }
+                      ],
+                      "function_cn_name": "展开指定二维数组"
+                    },
+                    "arguments": [
+                      {
+                        "operand_data": {
+                          "field_id": 3934,
+                          "field_key": "details",
+                          "data_type": {
+                            "data_type_id": 7,
+                            "data_type_alias": "JSONArray",
+                            "data_type_desc": "对象json 数组",
+                            "data_type_dimension": 4
+                          },
+                          "data_source_id": 38,
+                          "field_name": "",
+                          "field_expression": "mobileInfoV2>transportation>origin>call_info>data>details"
+                        },
+                        "function": {
+                          "function_name": "getField",
+                          "function_desc": "函数getField用于伪操作，用于取出一个field,接收参数：Field类型的入参field:field,函数执行最终返回返回field",
+                          "function_id": 233,
+                          "result_data_type": {
+                            "data_type_id": 4,
+                            "data_type_alias": "field",
+                            "data_type_desc": "数据源字段",
+                            "data_type_dimension": 1
+                          },
+                          "arguments": [
+                            {
+                              "argument_index": 0,
+                              "function_id": 233,
+                              "argument_desc": "入参field",
+                              "argument_type": "1",
+                              "argument_id": 442,
+                              "argument_data_type": {
+                                "data_type_id": 4,
+                                "data_type_alias": "field",
+                                "data_type_desc": "数据源字段",
+                                "data_type_dimension": 1
+                              }
+                            }
+                          ],
+                          "function_cn_name": "伪操作，用于取出一个field"
+                        },
+                        "index": 0,
+                        "show_checked": "details",
+                        "argument_desc": "指定子数组字段",
+                        "data_type_alias": "field",
+                        "data_type_desc": "数据源字段"
+                      }
+                    ],
+                    "id": 4,
+                    "deep": 4,
+                    "wait": false,
+                    "success": false,
+                    "error": "",
+                    "show_checked": "函数1结果",
+                    "argument_desc": "指定数组",
+                    "data_type_alias": "JSONArray",
+                    "data_type_desc": "对象json 数组"
+                  }
+                ],
+                "function": {
+                  "function_name": "filterContains",
+                  "function_desc": "函数filterContains用于对指定数组按照指定字符串字段包含包含指定值进行过滤,接收参数：TemporaryValue类型的指定数组:current,Field类型的指定字段:specField,String类型的指定字符串值，使用&amp;分隔:specValue,函数执行最终返回过滤后的数组",
+                  "function_id": 184,
+                  "result_data_type": {
+                    "data_type_id": 7,
+                    "data_type_alias": "JSONArray",
+                    "data_type_desc": "对象json 数组",
+                    "data_type_dimension": 4
+                  },
+                  "arguments": [
+                    {
+                      "argument_index": 0,
+                      "function_id": 184,
+                      "argument_desc": "指定数组",
+                      "argument_type": "0",
+                      "argument_id": 332,
+                      "argument_data_type": {
+                        "data_type_id": 7,
+                        "data_type_alias": "JSONArray",
+                        "data_type_desc": "对象json 数组",
+                        "data_type_dimension": 4
+                      }
+                    },
+                    {
+                      "argument_index": 1,
+                      "function_id": 184,
+                      "argument_desc": "指定字段",
+                      "argument_type": "1",
+                      "argument_id": 333,
+                      "argument_data_type": {
+                        "data_type_id": 4,
+                        "data_type_alias": "field",
+                        "data_type_desc": "数据源字段",
+                        "data_type_dimension": 1
+                      }
+                    },
+                    {
+                      "argument_index": 2,
+                      "function_id": 184,
+                      "argument_desc": "指定字符串值，使用&分隔",
+                      "argument_type": "1",
+                      "argument_id": 334,
+                      "argument_data_type": {
+                        "data_type_id": 1,
+                        "data_type_alias": "string",
+                        "data_type_desc": "字符串",
+                        "data_type_dimension": 1
+                      }
+                    }
+                  ],
+                  "function_cn_name": "对指定数组按照指定字段包含指定值进行过滤"
+                },
+                "arguments": [
+                  {
+                    "operand_data": {
+                      "field_id": null,
+                      "field_key": "comm_mode",
+                      "data_type": {
+                        "data_type_id": 1,
+                        "data_type_alias": "string",
+                        "data_type_desc": "字符串",
+                        "data_type_dimension": 1
+                      },
+                      "data_source_id": 38,
+                      "field_name": "",
+                      "field_expression": "detail>comm_mode"
+                    },
+                    "function": {
+                      "function_name": "getField",
+                      "function_desc": "函数getField用于伪操作，用于取出一个field,接收参数：Field类型的入参field:field,函数执行最终返回返回field",
+                      "function_id": 233,
+                      "result_data_type": {
+                        "data_type_id": 4,
+                        "data_type_alias": "field",
+                        "data_type_desc": "数据源字段",
+                        "data_type_dimension": 1
+                      },
+                      "arguments": [
+                        {
+                          "argument_index": 0,
+                          "function_id": 233,
+                          "argument_desc": "入参field",
+                          "argument_type": "1",
+                          "argument_id": 442,
+                          "argument_data_type": {
+                            "data_type_id": 4,
+                            "data_type_alias": "field",
+                            "data_type_desc": "数据源字段",
+                            "data_type_dimension": 1
+                          }
+                        }
+                      ],
+                      "function_cn_name": "伪操作，用于取出一个field"
+                    },
+                    "index": 0,
+                    "show_checked": "comm_mode",
+                    "argument_desc": "指定字段",
+                    "data_type_alias": "field",
+                    "data_type_desc": "数据源字段"
+                  },
+                  {
+                    "operand_data": "呼出&主叫",
+                    "function": {
+                      "function_name": "strToString",
+                      "function_desc": "函数strToString用于伪操作，返回入参字符串,接收参数：String类型的指定字符串:string,函数执行最终返回入参字符串",
+                      "function_id": 236,
+                      "result_data_type": {
+                        "data_type_id": 1,
+                        "data_type_alias": "string",
+                        "data_type_desc": "字符串",
+                        "data_type_dimension": 1
+                      },
+                      "arguments": [
+                        {
+                          "argument_index": 0,
+                          "function_id": 236,
+                          "argument_desc": "指定字符串",
+                          "argument_type": "1",
+                          "argument_id": 445,
+                          "argument_data_type": {
+                            "data_type_id": 1,
+                            "data_type_alias": "string",
+                            "data_type_desc": "字符串",
+                            "data_type_dimension": 1
+                          }
+                        }
+                      ],
+                      "function_cn_name": "伪操作，返回入参字符串"
+                    },
+                    "index": 0,
+                    "show_checked": "呼出&主叫",
+                    "argument_desc": "指定字符串值，使用&分隔",
+                    "data_type_alias": "string",
+                    "data_type_desc": "字符串"
+                  }
+                ],
+                "id": 3,
+                "deep": 3,
+                "wait": false,
+                "success": false,
+                "error": "",
+                "show_checked": "函数3结果",
+                "argument_desc": "指定数组",
+                "data_type_alias": "JSONArray",
+                "data_type_desc": "对象json 数组"
+              }
+            ],
+            "function": {
+              "function_name": "removeDuplicate",
+              "function_desc": "函数removeDuplicate用于对指定数组取指定字段上的去重后的值集合,接收参数：TemporaryValue类型的指定数组:current,Field类型的指定字段:specField,函数执行最终返回去重后的值集合",
+              "function_id": 211,
+              "result_data_type": {
+                "data_type_id": 7,
+                "data_type_alias": "JSONArray",
+                "data_type_desc": "对象json 数组",
+                "data_type_dimension": 4
+              },
+              "arguments": [
+                {
+                  "argument_index": 0,
+                  "function_id": 211,
+                  "argument_desc": "指定数组",
+                  "argument_type": "0",
+                  "argument_id": 398,
+                  "argument_data_type": {
+                    "data_type_id": 7,
+                    "data_type_alias": "JSONArray",
+                    "data_type_desc": "对象json 数组",
+                    "data_type_dimension": 4
+                  }
+                },
+                {
+                  "argument_index": 1,
+                  "function_id": 211,
+                  "argument_desc": "指定字段",
+                  "argument_type": "1",
+                  "argument_id": 399,
+                  "argument_data_type": {
+                    "data_type_id": 4,
+                    "data_type_alias": "field",
+                    "data_type_desc": "数据源字段",
+                    "data_type_dimension": 1
+                  }
+                }
+              ],
+              "function_cn_name": "对指定数组取指定字段上的去重后的值集合"
+            },
+            "arguments": [
+              {
+                "operand_data": {
+                  "field_id": null,
+                  "field_key": "another_nm",
+                  "data_type": {
+                    "data_type_id": 1,
+                    "data_type_alias": "string",
+                    "data_type_desc": "字符串",
+                    "data_type_dimension": 1
+                  },
+                  "data_source_id": 38,
+                  "field_name": "",
+                  "field_expression": "detail>another_nm"
+                },
+                "function": {
+                  "function_name": "getField",
+                  "function_desc": "函数getField用于伪操作，用于取出一个field,接收参数：Field类型的入参field:field,函数执行最终返回返回field",
+                  "function_id": 233,
+                  "result_data_type": {
+                    "data_type_id": 4,
+                    "data_type_alias": "field",
+                    "data_type_desc": "数据源字段",
+                    "data_type_dimension": 1
+                  },
+                  "arguments": [
+                    {
+                      "argument_index": 0,
+                      "function_id": 233,
+                      "argument_desc": "入参field",
+                      "argument_type": "1",
+                      "argument_id": 442,
+                      "argument_data_type": {
+                        "data_type_id": 4,
+                        "data_type_alias": "field",
+                        "data_type_desc": "数据源字段",
+                        "data_type_dimension": 1
+                      }
+                    }
+                  ],
+                  "function_cn_name": "伪操作，用于取出一个field"
+                },
+                "index": 0,
+                "show_checked": "another_nm",
+                "argument_desc": "指定字段",
+                "data_type_alias": "field",
+                "data_type_desc": "数据源字段"
+              }
+            ],
+            "id": 2,
+            "deep": 2,
+            "wait": false,
+            "success": false,
+            "error": "",
+            "show_checked": "函数5结果",
+            "argument_desc": "数组一",
+            "data_type_alias": "JSONArray",
+            "data_type_desc": "对象json 数组"
+          },
+          {
+            "operand_datas": [
+              {
+                "operand_datas": [
+                  {
+                    "operand_datas": [
+                      {
+                        "operand_data": {
+                          "field_id": 3932,
+                          "field_key": "data",
+                          "data_type": {
+                            "data_type_id": 7,
+                            "data_type_alias": "JSONArray",
+                            "data_type_desc": "对象json 数组",
+                            "data_type_dimension": 4
+                          },
+                          "data_source_id": 38,
+                          "field_name": "",
+                          "field_expression": "mobileInfoV2>transportation>origin>call_info>data"
+                        },
+                        "function": {
+                          "function_name": "metaGet",
+                          "function_desc": "函数metaGet用于从指定Json对象中取出指定field对应的属性,接收参数：TemporaryValue类型的指定Json对象:temporaryValue,Field类型的指定字段:operandField,函数执行最终返回指定字段对应的属性",
+                          "function_id": 232,
+                          "result_data_type": {
+                            "data_type_id": 10,
+                            "data_type_alias": "Object",
+                            "data_type_desc": "通用对象",
+                            "data_type_dimension": 1
+                          },
+                          "arguments": [
+                            {
+                              "argument_index": 1,
+                              "function_id": 232,
+                              "argument_desc": "指定字段",
+                              "argument_type": "1",
+                              "argument_id": 441,
+                              "argument_data_type": {
+                                "data_type_id": 4,
+                                "data_type_alias": "field",
+                                "data_type_desc": "数据源字段",
+                                "data_type_dimension": 1
+                              }
+                            }
+                          ],
+                          "function_cn_name": "伪操作从指定Json对象中取出指定field对应的属性"
+                        },
+                        "show_checked": "data",
+                        "argument_desc": "指定Json数组",
+                        "data_type_alias": "JSONArray",
+                        "data_type_desc": "对象json 数组"
+                      }
+                    ],
+                    "function": {
+                      "function_name": "expand2dJsonArray",
+                      "function_desc": null,
+                      "function_id": 251,
+                      "result_data_type": {
+                        "data_type_id": 7,
+                        "data_type_alias": "JSONArray",
+                        "data_type_desc": "对象json 数组",
+                        "data_type_dimension": 4
+                      },
+                      "arguments": [
+                        {
+                          "argument_index": 0,
+                          "function_id": 251,
+                          "argument_desc": "指定Json数组",
+                          "argument_type": "0",
+                          "argument_id": 471,
+                          "argument_data_type": {
+                            "data_type_id": 7,
+                            "data_type_alias": "JSONArray",
+                            "data_type_desc": "对象json 数组",
+                            "data_type_dimension": 4
+                          }
+                        },
+                        {
+                          "argument_index": 1,
+                          "function_id": 251,
+                          "argument_desc": "指定子数组字段",
+                          "argument_type": "1",
+                          "argument_id": 472,
+                          "argument_data_type": {
+                            "data_type_id": 4,
+                            "data_type_alias": "field",
+                            "data_type_desc": "数据源字段",
+                            "data_type_dimension": 1
+                          }
+                        }
+                      ],
+                      "function_cn_name": "展开指定二维数组"
+                    },
+                    "arguments": [
+                      {
+                        "operand_data": {
+                          "field_id": 3934,
+                          "field_key": "details",
+                          "data_type": {
+                            "data_type_id": 7,
+                            "data_type_alias": "JSONArray",
+                            "data_type_desc": "对象json 数组",
+                            "data_type_dimension": 4
+                          },
+                          "data_source_id": 38,
+                          "field_name": "",
+                          "field_expression": "mobileInfoV2>transportation>origin>call_info>data>details"
+                        },
+                        "function": {
+                          "function_name": "getField",
+                          "function_desc": "函数getField用于伪操作，用于取出一个field,接收参数：Field类型的入参field:field,函数执行最终返回返回field",
+                          "function_id": 233,
+                          "result_data_type": {
+                            "data_type_id": 4,
+                            "data_type_alias": "field",
+                            "data_type_desc": "数据源字段",
+                            "data_type_dimension": 1
+                          },
+                          "arguments": [
+                            {
+                              "argument_index": 0,
+                              "function_id": 233,
+                              "argument_desc": "入参field",
+                              "argument_type": "1",
+                              "argument_id": 442,
+                              "argument_data_type": {
+                                "data_type_id": 4,
+                                "data_type_alias": "field",
+                                "data_type_desc": "数据源字段",
+                                "data_type_dimension": 1
+                              }
+                            }
+                          ],
+                          "function_cn_name": "伪操作，用于取出一个field"
+                        },
+                        "index": 0,
+                        "show_checked": "details",
+                        "argument_desc": "指定子数组字段",
+                        "data_type_alias": "field",
+                        "data_type_desc": "数据源字段"
+                      }
+                    ],
+                    "id": 4,
+                    "show_checked": "函数1结果",
+                    "argument_desc": "指定数组",
+                    "data_type_alias": "JSONArray",
+                    "data_type_desc": "对象json 数组"
+                  }
+                ],
+                "function": {
+                  "function_name": "filterContains",
+                  "function_desc": "函数filterContains用于对指定数组按照指定字符串字段包含包含指定值进行过滤,接收参数：TemporaryValue类型的指定数组:current,Field类型的指定字段:specField,String类型的指定字符串值，使用&amp;分隔:specValue,函数执行最终返回过滤后的数组",
+                  "function_id": 184,
+                  "result_data_type": {
+                    "data_type_id": 7,
+                    "data_type_alias": "JSONArray",
+                    "data_type_desc": "对象json 数组",
+                    "data_type_dimension": 4
+                  },
+                  "arguments": [
+                    {
+                      "argument_index": 0,
+                      "function_id": 184,
+                      "argument_desc": "指定数组",
+                      "argument_type": "0",
+                      "argument_id": 332,
+                      "argument_data_type": {
+                        "data_type_id": 7,
+                        "data_type_alias": "JSONArray",
+                        "data_type_desc": "对象json 数组",
+                        "data_type_dimension": 4
+                      }
+                    },
+                    {
+                      "argument_index": 1,
+                      "function_id": 184,
+                      "argument_desc": "指定字段",
+                      "argument_type": "1",
+                      "argument_id": 333,
+                      "argument_data_type": {
+                        "data_type_id": 4,
+                        "data_type_alias": "field",
+                        "data_type_desc": "数据源字段",
+                        "data_type_dimension": 1
+                      }
+                    },
+                    {
+                      "argument_index": 2,
+                      "function_id": 184,
+                      "argument_desc": "指定字符串值，使用&分隔",
+                      "argument_type": "1",
+                      "argument_id": 334,
+                      "argument_data_type": {
+                        "data_type_id": 1,
+                        "data_type_alias": "string",
+                        "data_type_desc": "字符串",
+                        "data_type_dimension": 1
+                      }
+                    }
+                  ],
+                  "function_cn_name": "对指定数组按照指定字段包含指定值进行过滤"
+                },
+                "arguments": [
+                  {
+                    "operand_data": {
+                      "field_id": null,
+                      "field_key": "comm_mode",
+                      "data_type": {
+                        "data_type_id": 1,
+                        "data_type_alias": "string",
+                        "data_type_desc": "字符串",
+                        "data_type_dimension": 1
+                      },
+                      "data_source_id": 38,
+                      "field_name": "",
+                      "field_expression": "detail>comm_mode"
+                    },
+                    "function": {
+                      "function_name": "getField",
+                      "function_desc": "函数getField用于伪操作，用于取出一个field,接收参数：Field类型的入参field:field,函数执行最终返回返回field",
+                      "function_id": 233,
+                      "result_data_type": {
+                        "data_type_id": 4,
+                        "data_type_alias": "field",
+                        "data_type_desc": "数据源字段",
+                        "data_type_dimension": 1
+                      },
+                      "arguments": [
+                        {
+                          "argument_index": 0,
+                          "function_id": 233,
+                          "argument_desc": "入参field",
+                          "argument_type": "1",
+                          "argument_id": 442,
+                          "argument_data_type": {
+                            "data_type_id": 4,
+                            "data_type_alias": "field",
+                            "data_type_desc": "数据源字段",
+                            "data_type_dimension": 1
+                          }
+                        }
+                      ],
+                      "function_cn_name": "伪操作，用于取出一个field"
+                    },
+                    "index": 0,
+                    "show_checked": "comm_mode",
+                    "argument_desc": "指定字段",
+                    "data_type_alias": "field",
+                    "data_type_desc": "数据源字段"
+                  },
+                  {
+                    "operand_data": "被叫&呼入",
+                    "function": {
+                      "function_name": "strToString",
+                      "function_desc": "函数strToString用于伪操作，返回入参字符串,接收参数：String类型的指定字符串:string,函数执行最终返回入参字符串",
+                      "function_id": 236,
+                      "result_data_type": {
+                        "data_type_id": 1,
+                        "data_type_alias": "string",
+                        "data_type_desc": "字符串",
+                        "data_type_dimension": 1
+                      },
+                      "arguments": [
+                        {
+                          "argument_index": 0,
+                          "function_id": 236,
+                          "argument_desc": "指定字符串",
+                          "argument_type": "1",
+                          "argument_id": 445,
+                          "argument_data_type": {
+                            "data_type_id": 1,
+                            "data_type_alias": "string",
+                            "data_type_desc": "字符串",
+                            "data_type_dimension": 1
+                          }
+                        }
+                      ],
+                      "function_cn_name": "伪操作，返回入参字符串"
+                    },
+                    "index": 0,
+                    "show_checked": "被叫&呼入",
+                    "argument_desc": "指定字符串值，使用&分隔",
+                    "data_type_alias": "string",
+                    "data_type_desc": "字符串"
+                  }
+                ],
+                "id": 6,
+                "deep": 3,
+                "wait": false,
+                "success": false,
+                "error": "",
+                "show_checked": "函数2结果",
+                "argument_desc": "指定数组",
+                "data_type_alias": "JSONArray",
+                "data_type_desc": "对象json 数组"
+              }
+            ],
+            "function": {
+              "function_name": "removeDuplicate",
+              "function_desc": "函数removeDuplicate用于对指定数组取指定字段上的去重后的值集合,接收参数：TemporaryValue类型的指定数组:current,Field类型的指定字段:specField,函数执行最终返回去重后的值集合",
+              "function_id": 211,
+              "result_data_type": {
+                "data_type_id": 7,
+                "data_type_alias": "JSONArray",
+                "data_type_desc": "对象json 数组",
+                "data_type_dimension": 4
+              },
+              "arguments": [
+                {
+                  "argument_index": 0,
+                  "function_id": 211,
+                  "argument_desc": "指定数组",
+                  "argument_type": "0",
+                  "argument_id": 398,
+                  "argument_data_type": {
+                    "data_type_id": 7,
+                    "data_type_alias": "JSONArray",
+                    "data_type_desc": "对象json 数组",
+                    "data_type_dimension": 4
+                  }
+                },
+                {
+                  "argument_index": 1,
+                  "function_id": 211,
+                  "argument_desc": "指定字段",
+                  "argument_type": "1",
+                  "argument_id": 399,
+                  "argument_data_type": {
+                    "data_type_id": 4,
+                    "data_type_alias": "field",
+                    "data_type_desc": "数据源字段",
+                    "data_type_dimension": 1
+                  }
+                }
+              ],
+              "function_cn_name": "对指定数组取指定字段上的去重后的值集合"
+            },
+            "arguments": [
+              {
+                "operand_data": {
+                  "field_id": null,
+                  "field_key": "another_nm",
+                  "data_type": {
+                    "data_type_id": 1,
+                    "data_type_alias": "string",
+                    "data_type_desc": "字符串",
+                    "data_type_dimension": 1
+                  },
+                  "data_source_id": 38,
+                  "field_name": "",
+                  "field_expression": "detail>another_nm"
+                },
+                "function": {
+                  "function_name": "getField",
+                  "function_desc": "函数getField用于伪操作，用于取出一个field,接收参数：Field类型的入参field:field,函数执行最终返回返回field",
+                  "function_id": 233,
+                  "result_data_type": {
+                    "data_type_id": 4,
+                    "data_type_alias": "field",
+                    "data_type_desc": "数据源字段",
+                    "data_type_dimension": 1
+                  },
+                  "arguments": [
+                    {
+                      "argument_index": 0,
+                      "function_id": 233,
+                      "argument_desc": "入参field",
+                      "argument_type": "1",
+                      "argument_id": 442,
+                      "argument_data_type": {
+                        "data_type_id": 4,
+                        "data_type_alias": "field",
+                        "data_type_desc": "数据源字段",
+                        "data_type_dimension": 1
+                      }
+                    }
+                  ],
+                  "function_cn_name": "伪操作，用于取出一个field"
+                },
+                "index": 0,
+                "show_checked": "another_nm",
+                "argument_desc": "指定字段",
+                "data_type_alias": "field",
+                "data_type_desc": "数据源字段"
+              }
+            ],
+            "id": 5,
+            "deep": 2,
+            "wait": false,
+            "success": false,
+            "error": "",
+            "show_checked": "函数4结果",
+            "argument_desc": "数组二",
+            "data_type_alias": "JSONArray",
+            "data_type_desc": "对象json 数组"
+          }
+        ],
+        "function": {
+          "function_name": "interset",
+          "function_desc": "函数interset用于对两个数组取交集操作,接收参数：TemporaryValue类型的数组一:current,TemporaryValue类型的数组二:another,函数执行最终返回取交集操作后得到的数组",
+          "function_id": 198,
+          "result_data_type": {
+            "data_type_id": 7,
+            "data_type_alias": "JSONArray",
+            "data_type_desc": "对象json 数组",
+            "data_type_dimension": 4
+          },
+          "arguments": [
+            {
+              "argument_index": 0,
+              "function_id": 198,
+              "argument_desc": "数组一",
+              "argument_type": "0",
+              "argument_id": 373,
+              "argument_data_type": {
+                "data_type_id": 7,
+                "data_type_alias": "JSONArray",
+                "data_type_desc": "对象json 数组",
+                "data_type_dimension": 4
+              }
+            },
+            {
+              "argument_index": 1,
+              "function_id": 198,
+              "argument_desc": "数组二",
+              "argument_type": "0",
+              "argument_id": 374,
+              "argument_data_type": {
+                "data_type_id": 7,
+                "data_type_alias": "JSONArray",
+                "data_type_desc": "对象json 数组",
+                "data_type_dimension": 4
+              }
+            }
+          ],
+          "function_cn_name": "对两个数组取交集操作"
+        },
+        "arguments": [],
+        "id": 1,
+        "deep": 1,
+        "wait": false,
+        "success": false,
+        "error": "",
+        "show_checked": "函数6结果",
+        "argument_desc": "指定数组",
+        "data_type_alias": "JSONArray",
+        "data_type_desc": "对象json 数组"
+      }
+    ],
+    "function": {
+      "function_name": "length",
+      "function_desc": "函数length用于取指定数组的数组长度,接收参数：TemporaryValue类型的指定数组:current,函数执行最终返回指定数组的长度",
+      "function_id": 199,
+      "result_data_type": {
+        "data_type_id": 2,
+        "data_type_alias": "number",
+        "data_type_desc": "数值",
+        "data_type_dimension": 1
+      },
+      "arguments": [
+        {
+          "argument_index": 0,
+          "function_id": 199,
+          "argument_desc": "指定数组",
+          "argument_type": "0",
+          "argument_id": 375,
+          "argument_data_type": {
+            "data_type_id": 7,
+            "data_type_alias": "JSONArray",
+            "data_type_desc": "对象json 数组",
+            "data_type_dimension": 4
+          }
+        }
+      ],
+      "function_cn_name": "取指定数组的数组长度"
+    },
+    "arguments": [],
+    "id": 0,
+    "deep": 0,
+    "wait": true,
+    "success": false,
+    "error": "",
+    "result_type": "number",
+    "result_value": 11
+  }
+}
