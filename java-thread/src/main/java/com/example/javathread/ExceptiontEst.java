@@ -1,5 +1,6 @@
 package com.example.javathread;
 
+import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
  * @description executorService 中的异常会被隐藏，只能在　　runnable 中catch； 使用　excute 不会　或则submit 之后　取值　
  * @date 2019-01-16 09:55
  **/
-public class test {
+public class ExceptiontEst {
 
 
     public static void main(String[] args) {
@@ -41,7 +42,7 @@ public class test {
                 });
 
         });
-        executorService.shutdown();
 
+        executorService.shutdown();
     }
 }

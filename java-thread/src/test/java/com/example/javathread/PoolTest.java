@@ -26,10 +26,10 @@ public class PoolTest {
 //                e.printStackTrace();
 //            }
         });
-        ii.get();
+//        ii.get();
 //        TimeUnit.SECONDS.sleep(20);
         executorService.shutdown();
-        System.out.println(executorService.awaitTermination(1000, TimeUnit.SECONDS));
+        System.out.println(executorService.awaitTermination(5, TimeUnit.SECONDS));
 
     }
 

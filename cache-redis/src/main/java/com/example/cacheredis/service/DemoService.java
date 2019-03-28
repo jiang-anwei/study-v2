@@ -1,9 +1,13 @@
 package com.example.cacheredis.service;
 
 import com.google.common.hash.HashCode;
+import com.jayway.jsonpath.JsonPath;
 import lombok.extern.slf4j.Slf4j;
+import net.minidev.json.JSONObject;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 
 /**
  * @author jianganwei
@@ -18,5 +22,10 @@ public class DemoService {
     public String demo(String id) {
         log.info("没有走缓存");
         return HashCode.fromString(id).toString();
+    }
+
+    public static void main(String[] args) {
+
+
     }
 }
