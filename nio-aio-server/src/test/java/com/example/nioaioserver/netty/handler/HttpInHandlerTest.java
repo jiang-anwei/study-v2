@@ -13,6 +13,7 @@ public class HttpInHandlerTest {
     @Test
     public void test() {
         EmbeddedChannel channel = new EmbeddedChannel(new HttpInHandler());
+
         //写一个入站消息
         System.out.println(channel.writeInbound(new DefaultFullHttpRequest(HttpVersion.HTTP_1_1, HttpMethod.GET,"/test")));
 

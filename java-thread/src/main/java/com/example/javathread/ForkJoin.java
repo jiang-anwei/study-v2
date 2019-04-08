@@ -34,7 +34,6 @@ public class ForkJoin {
                 SumTask right = new SumTask(pos, end);
                 left.fork();
                 long leftVaule = left.join();
-
                 sum = right.invoke() + leftVaule;
             }
             return sum;
