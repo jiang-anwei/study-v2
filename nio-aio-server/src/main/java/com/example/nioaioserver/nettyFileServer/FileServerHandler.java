@@ -58,7 +58,8 @@ public class FileServerHandler extends SimpleChannelInboundHandler<FullHttpReque
         response.headers().set(HttpHeaderNames.CONTENT_TYPE, "application/octet-stream");
         response.headers().add(HttpHeaderNames.CONTENT_DISPOSITION, String.format("attachment; filename=\"%s\"", file.getName()));
         ctx.write(response);
-        ctx.writeAndFlush(new ChunkedFile(file), ctx.newProgressivePromise()).addListener(new ChannelProgressiveFutureListener() {
+//        ctx.write(new ChunkedFile(file)); or
+        ctx.write(new ChunkedFile(randomAccessFile), ctx.newProgressivePromise()).addListener(new ChannelProgressiveFutureListener() {
             @Override
             public void operationProgressed(ChannelProgressiveFuture future, long progress, long total) throws Exception {
                 if (total < 0) {
