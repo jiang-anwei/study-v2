@@ -1,10 +1,14 @@
 package com.example.nioaioserver.nettyFileServer;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.sun.javafx.binding.StringFormatter;
 import io.netty.channel.*;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.stream.ChunkedFile;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.logging.log4j.util.Strings;
+import org.springframework.util.StringUtils;
 
 import javax.activation.MimetypesFileTypeMap;
 import java.io.*;
@@ -15,6 +19,9 @@ import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
@@ -62,7 +69,7 @@ public class FileServerHandler extends SimpleChannelInboundHandler<FullHttpReque
             //如果不加　len 就要关闭流　.addListener(ChannelFutureListener.CLOSE)
 //            response.headers().set(HttpHeaderNames.CONTENT_LENGTH, randomAccessFile.length());
             response.headers().set(HttpHeaderNames.CONTENT_TYPE, "application/octet-stream");
-            response.headers().add(HttpHeaderNames.CONTENT_DISPOSITION, String.format("attachment; filename=\"%s\"", file.getName()));
+            response.headers().add(HttpHeaderNames.CONTENT_DISPOSITION, new String(String.format("attachment; filename=\"%s\"", file.getName()).getBytes("utf-8"),"ISO-8859-1"));
             ctx.write(response);
 //        ctx.write(new ChunkedFile(file)); or
             ctx.write(new ChunkedFile(randomAccessFile), ctx.newProgressivePromise()).addListener(new ChannelProgressiveFutureListener() {
@@ -102,6 +109,10 @@ public class FileServerHandler extends SimpleChannelInboundHandler<FullHttpReque
             response.content().writeBytes(String.format("file %s is not exists", file.getAbsolutePath()).getBytes());
             ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
         }
+
+    }
+
+    public static void main(String[] args) throws Exception {
 
     }
 }
