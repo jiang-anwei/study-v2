@@ -1,15 +1,15 @@
-package com.example.nioaioserver.BIO;
+package com.example.nioaioserver.bio;
 
 import com.google.common.base.Stopwatch;
-import lombok.Cleanup;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author jianganwei
@@ -29,19 +29,18 @@ public class SocketServer {
         @Override
 
         public void run() {
-            Stopwatch stopwatch = Stopwatch.createStarted();
-            try  {
 
-                @Cleanup BufferedReader reader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                @Cleanup PrintWriter writer=new PrintWriter(socket.getOutputStream());
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                 PrintWriter writer = new PrintWriter(socket.getOutputStream())) {
+                Stopwatch stopwatch = Stopwatch.createStarted();
                 log.info("服务器收到请求");
                 String len;
-                while ((len = reader.readLine()) !=null) {
-                    log.info("len:{}",len);
+                while ((len = reader.readLine()) != null) {
+                    log.info("收到请求:{}", len);
                     writer.println(len);
                     writer.flush();
-                }
 
+                }
                 log.info("处理相应耗时：{}", stopwatch.stop());
             } catch (Exception e) {
                 e.printStackTrace();
@@ -50,13 +49,12 @@ public class SocketServer {
     }
 
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        try (ServerSocket serverSocket = new ServerSocket(8082)) {
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        try (ServerSocket serverSocket = new ServerSocket(8000)) {
             while (true) {
                 Socket socket = serverSocket.accept();
                 executorService.execute(new HandleRequest(socket));
             }
-
 
         } catch (Exception e) {
             e.printStackTrace();
