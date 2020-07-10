@@ -4,6 +4,7 @@ import com.google.common.reflect.Reflection;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Proxy;
+import java.util.ServiceLoader;
 
 /**
  * @author jianganwei
@@ -27,14 +28,17 @@ public interface DemoService {
 //        demoService.sout();
 //    }
 //guava 实现
+
     public static void main(String[] args) {
-        DemoService demoService = Reflection.newProxy(DemoService.class, (proxy, method, aargs) -> {
-            System.out.println("start");
-            Object result=method.invoke(new DemoServiceImpl(),aargs);
-            System.out.println("end");
-            return result;
-        });
-        demoService.sout();
+//        DemoService demoService = Reflection.newProxy(DemoService.class, (proxy, method, aargs) -> {
+//            System.out.println("start");
+//
+//            Object result=method.invoke(new DemoServiceImpl(),aargs);
+//            System.out.println("end");
+//            return result;
+//        });
+//        demoService.sout();
+
     }
 //CGlib 动态代理不需要接口
 //    public static void main(String[] args) {
