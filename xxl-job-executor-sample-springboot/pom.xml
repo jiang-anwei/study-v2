@@ -17,7 +17,7 @@
     <url>http://www.xuxueli.com/</url>
 
     <properties>
-        <jetty-server.version>9.2.26.v20180806</jetty-server.version>
+        <jetty-server.version>10.0.10</jetty-server.version>
     </properties>
 
     <dependencyManagement>
